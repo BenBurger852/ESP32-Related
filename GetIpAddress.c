@@ -1,4 +1,5 @@
 This code is part of wifi_connect.c in the ESPRESSIF library
+bool getIpStatus(void);      //declare in your .h file if needed
 //=============================================================================
 static void example_handler_on_sta_got_ip(void *arg, esp_event_base_t event_base,
                                           int32_t event_id, void *event_data)
@@ -30,4 +31,9 @@ static void example_handler_on_sta_got_ip(void *arg, esp_event_base_t event_base
     {
         ESP_LOGI(TAG, "- IPv4 address: " IPSTR ",", IP2STR(&event->ip_info.ip));
     }
+}
+//=======================================================
+bool getIpStatus(void)
+{
+    return  wifiConnected;
 }
